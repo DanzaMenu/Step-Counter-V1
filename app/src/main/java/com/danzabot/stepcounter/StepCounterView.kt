@@ -21,10 +21,10 @@ class StepCounterView(context: Context, attrs: AttributeSet? = null) : View(cont
     private val colorMain    = 0xFFEEEEEE.toInt()
     private val colorGoal    = 0xFF4CD787.toInt()   // exact from reference
 
-    private fun colShoe()   = colorAccent
+    private fun colShoe()   = if (scene() == "vegas") 0xFF42E9F5.toInt() else colorAccent
     private fun colText()   = colorMain
-    private fun colBarOn()  = colorAccent
-    private fun colBarOff() = Color.argb(45, 180, 200, 255)   // subtle unlit track
+    private fun colBarOn()  = if (scene() == "vegas") 0xFF42E9F5.toInt() else colorAccent
+    private fun colBarOff() = if (scene() == "vegas") Color.argb(105, 205, 174, 255) else Color.argb(45, 180, 200, 255)
     private fun colGoal()   = colorGoal
     private fun colWalker() = colorMain
     private fun colPanel()  = Color.argb(140, 0, 0, 0)         // readability overlay
@@ -37,6 +37,7 @@ class StepCounterView(context: Context, attrs: AttributeSet? = null) : View(cont
         .firstOrNull { it.name == uiPrefs.getString("walker_style", "CLASSIC") } ?: WalkerStyle.CLASSIC
     private fun showMiles()     = uiPrefs.getBoolean("show_miles", true)
     private fun showStats()     = uiPrefs.getBoolean("show_stats", true)
+    private fun scene()         = uiPrefs.getString("scene", "sun") ?: "sun"
 
     // ── Main draw ────────────────────────────────────────────────────────────
 
@@ -48,9 +49,18 @@ class StepCounterView(context: Context, attrs: AttributeSet? = null) : View(cont
         val w = width.toFloat()
         val pad = 20f * k
 
-        // Semi-transparent panel behind the step counter for scene readability
-        fillPaint.color = colPanel()
-        canvas.drawRoundRect(0f, 0f, w, height.toFloat(), 28f * k, 28f * k, fillPaint)
+        // The Vegas panel follows the approved source art: translucent violet glass that keeps the Strip visible.
+        if (scene() == "vegas") {
+            fillPaint.shader = LinearGradient(0f, 0f, w, height.toFloat(), Color.argb(148, 35, 13, 76), Color.argb(128, 81, 25, 103), Shader.TileMode.CLAMP)
+            canvas.drawRoundRect(0f, 0f, w, height.toFloat(), 28f * k, 28f * k, fillPaint)
+            fillPaint.shader = null
+            strokePaint.color = Color.argb(225, 226, 147, 255)
+            strokePaint.strokeWidth = 1.2f * k
+            canvas.drawRoundRect(0.8f * k, 0.8f * k, w - 0.8f * k, height - 0.8f * k, 27.2f * k, 27.2f * k, strokePaint)
+        } else {
+            fillPaint.color = colPanel()
+            canvas.drawRoundRect(0f, 0f, w, height.toFloat(), 28f * k, 28f * k, fillPaint)
+        }
 
         if (!Steps.granted(context)) {
             drawPermissionPrompt(canvas, w, k, t, pad)
@@ -113,7 +123,7 @@ class StepCounterView(context: Context, attrs: AttributeSet? = null) : View(cont
             val statsY = barY + barH + 14f * k
             val smallSize = 7.2f * t * k
             textPaint.textSize = smallSize
-            textPaint.color = Color.argb(180, 220, 220, 220)
+            textPaint.color = if (scene() == "vegas") Color.argb(235, 255, 255, 255) else Color.argb(180, 220, 220, 220)
             textPaint.typeface = Typeface.DEFAULT
 
             val cals   = Steps.toCalories(n)

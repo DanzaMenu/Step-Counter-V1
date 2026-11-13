@@ -73,7 +73,7 @@ class StepCounterWidget : AppWidgetProvider() {
             val scene = uiPrefs.getString("scene", "sun") ?: "sun"
             val kind = if (scene == "live" || scene == "vegas") WeatherState.kind else scene
             if (scene == "vegas") {
-                VegasScene.draw(canvas, 0f, 0f, widthPx.toFloat(), h.toFloat(),
+                VegasScene.draw(context, canvas, 0f, 0f, widthPx.toFloat(), h.toFloat(),
                     dm.density, kind, WeatherState.isNight)
             } else {
                 WeatherScene.draw(canvas, 0f, 0f, widthPx.toFloat(), h.toFloat(),
