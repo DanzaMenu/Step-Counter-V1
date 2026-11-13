@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Shoe sole -->
+    <path
+        android:fillColor="#4A9EF5"
+        android:pathData="M20,72 Q20,78 26,78 L82,78 Q88,78 88,72 L88,66 L20,66 Z" />
+    <!-- Shoe upper -->
+    <path
+        android:fillColor="#4A9EF5"
+        android:pathData="M20,66 L24,38 L50,38 L58,52 L88,56 L88,66 Z" />
+    <!-- Walker head -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M60,19 m-5,0 a5,5 0 1,0 10,0 a5,5 0 1,0 -10,0" />
+    <!-- Walker body -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M58,29 L62,29 L62,39 L58,39 Z" />
+    <!-- Walker right leg -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M58,39 L62,39 L67,50 L64,50 Z" />
+    <!-- Walker left leg -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M58,39 L62,39 L56,50 L53,50 Z" />
+</vector>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.StepCounter" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/md_theme_light_primary</item>
+        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
+        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
+        <item name="colorSecondary">@color/md_theme_light_secondary</item>
+        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
+        <item name="android:colorBackground">@color/md_theme_light_background</item>
+        <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
+        <item name="colorSurface">@color/md_theme_light_surface</item>
+        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
+    </style>
+
+    <style name="Theme.StepCounter.Settings" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">#4A9EF5</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#1A3A6A</item>
+        <item name="colorOnPrimaryContainer">#D2E4FF</item>
+        <item name="colorSecondary">#4CD787</item>
+        <item name="colorOnSecondary">#003822</item>
+        <item name="android:colorBackground">#12121E</item>
+        <item name="colorOnBackground">#E3E2F0</item>
+        <item name="colorSurface">#1E1E30</item>
+        <item name="colorOnSurface">#E3E2F0</item>
+        <item name="colorSurfaceVariant">#2A2A40</item>
+        <item name="colorOnSurfaceVariant">#AAAACC</item>
+        <item name="colorOutline">#555570</item>
+        <item name="colorOutlineVariant">#333350</item>
+    </style>
+</resources>

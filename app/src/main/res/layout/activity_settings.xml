@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D1220"
+    android:fitsSystemWindows="true">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:scrollbarStyle="outsideOverlay"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Header area with toolbar overlaid -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@android:color/transparent"
+                    android:elevation="0dp"
+                    app:navigationIcon="@drawable/ic_arrow_back"
+                    app:navigationIconTint="#DDFFFFFF" />
+
+            </FrameLayout>
+
+            <!-- Settings title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                android:textColor="#F0F0F0"
+                android:fontFamily="sans-serif-medium"
+                android:paddingHorizontal="24dp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Customize your step counter"
+                android:textSize="14sp"
+                android:textColor="#80FFFFFF"
+                android:paddingHorizontal="24dp"
+                android:layout_marginBottom="28dp" />
+
+            <!-- ═══ GOAL SECTION ═══ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_settings_section"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="12dp"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Daily Goal"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#E8E8E8"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set your target steps per day"
+                    android:textSize="13sp"
+                    android:textColor="#66FFFFFF"
+                    android:layout_marginBottom="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <SeekBar
+                        android:id="@+id/seekGoal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="199"
+                        android:progressTint="#6C9BF2"
+                        android:thumbTint="#6C9BF2" />
+
+                    <EditText
+                        android:id="@+id/etGoal"
+                        android:layout_width="88dp"
+                        android:layout_height="44dp"
+                        android:layout_marginStart="12dp"
+                        android:inputType="number"
+                        android:textColor="#E0E0E0"
+                        android:textSize="16sp"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:maxLength="8"
+                        android:background="@drawable/bg_value_pill"
+                        android:paddingHorizontal="8dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Type any number for goals above 100k"
+                    android:textSize="11sp"
+                    android:textColor="#55FFFFFF"
+                    android:layout_marginTop="6dp" />
+
+            </LinearLayout>
+
+            <!-- ═══ DISPLAY SECTION ═══ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_settings_section"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="12dp"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Display"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#E8E8E8"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- Show miles -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Show miles"
+                            android:textSize="15sp"
+                            android:textColor="#D8D8D8" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Distance walked"
+                            android:textSize="12sp"
+                            android:textColor="#55FFFFFF" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchMiles"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:background="#12FFFFFF" android:layout_marginVertical="4dp" />
+
+                <!-- Show stats -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Show calories &amp; weight"
+                            android:textSize="15sp"
+                            android:textColor="#D8D8D8" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Estimated burn and weight impact"
+                            android:textSize="12sp"
+                            android:textColor="#55FFFFFF" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchStats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:background="#12FFFFFF" android:layout_marginVertical="4dp" />
+
+                <!-- Progress bar style -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Progress bar style"
+                    android:textSize="15sp"
+                    android:textColor="#D8D8D8"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="10dp" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton android:id="@+id/radioSolid"
+                        android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="40dp"
+                        android:text="Solid" android:textColor="#BBBBBB"
+                        android:textSize="13sp" android:gravity="center"
+                        android:button="@null"
+                        android:background="@drawable/bg_radio_pill" />
+
+                    <RadioButton android:id="@+id/radioSegments"
+                        android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="40dp"
+                        android:text="Segments" android:textColor="#BBBBBB"
+                        android:textSize="13sp" android:gravity="center"
+                        android:layout_marginHorizontal="8dp"
+                        android:button="@null"
+                        android:background="@drawable/bg_radio_pill" />
+
+                    <RadioButton android:id="@+id/radioDots"
+                        android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="40dp"
+                        android:text="Dots" android:textColor="#BBBBBB"
+                        android:textSize="13sp" android:gravity="center"
+                        android:button="@null"
+                        android:background="@drawable/bg_radio_pill" />
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <!-- ═══ WALKER SECTION ═══ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_settings_section"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="12dp"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Walker"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#E8E8E8"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="6dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Show walker"
+                            android:textSize="15sp"
+                            android:textColor="#D8D8D8" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Animated character on the progress bar"
+                            android:textSize="12sp"
+                            android:textColor="#55FFFFFF" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchWalker"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:background="#12FFFFFF" android:layout_marginVertical="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Character style"
+                    android:textSize="13sp"
+                    android:textColor="#55FFFFFF"
+                    android:layout_marginBottom="6dp" />
+
+                <Spinner android:id="@+id/spinnerWalkerStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_spinner_styled"
+                    android:popupBackground="#1E2538"
+                    android:paddingHorizontal="16dp" />
+
+            </LinearLayout>
+
+            <!-- ═══ ALERTS SECTION ═══ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_settings_section"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="12dp"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alerts"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#E8E8E8"
+                    android:layout_marginBottom="12dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="6dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mile alerts"
+                            android:textSize="15sp"
+                            android:textColor="#D8D8D8" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Get notified every mile"
+                            android:textSize="12sp"
+                            android:textColor="#55FFFFFF" />
+                    </LinearLayout>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchAlerts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <View android:layout_width="match_parent" android:layout_height="1dp"
+                    android:background="#12FFFFFF" android:layout_marginVertical="8dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alert type"
+                    android:textSize="13sp"
+                    android:textColor="#55FFFFFF"
+                    android:layout_marginBottom="6dp" />
+
+                <Spinner android:id="@+id/spinnerAlertType"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_spinner_styled"
+                    android:popupBackground="#1E2538"
+                    android:paddingHorizontal="16dp" />
+
+            </LinearLayout>
+
+            <!-- ═══ SCENE SECTION ═══ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_settings_section"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="12dp"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Background Scene"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#E8E8E8"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Animated weather behind the step counter"
+                    android:textSize="13sp"
+                    android:textColor="#55FFFFFF"
+                    android:layout_marginBottom="12dp" />
+
+                <Spinner android:id="@+id/spinnerScene"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_spinner_styled"
+                    android:popupBackground="#1E2538"
+                    android:paddingHorizontal="16dp" />
+
+            </LinearLayout>
+
+            <!-- ═══ TRIP MODE SECTION ═══ -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_trip_section"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginBottom="32dp"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Multi-Day Trip"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#E8E8E8"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Going on vacation? Turn this on to keep counting steps across multiple days without resetting at midnight."
+                    android:textSize="14sp"
+                    android:textColor="#88AABB"
+                    android:lineSpacingExtra="3dp"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView android:id="@+id/tvTripStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Off — steps reset each night at midnight"
+                    android:textSize="13sp"
+                    android:textColor="#6C9BF2"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="16dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTripToggle"
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:text="Start Trip"
+                    android:textSize="16sp"
+                    android:textAllCaps="false"
+                    app:cornerRadius="14dp"
+                    app:backgroundTint="#6C9BF2"
+                    android:textColor="#FFFFFF" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

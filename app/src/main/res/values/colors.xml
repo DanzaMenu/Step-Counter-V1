@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#1A1A2E</color>
+    <color name="accent">#4A9EF5</color>
+    <color name="goal_green">#4CD787</color>
+    <color name="surface_dark">#1A1A2E</color>
+    <color name="surface_dark_elevated">#252540</color>
+    <color name="text_primary">#EEEEEE</color>
+    <color name="text_secondary">#AAAACC</color>
+
+    <!-- Material theme colors -->
+    <color name="md_theme_light_primary">#4A9EF5</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#D2E4FF</color>
+    <color name="md_theme_light_onPrimaryContainer">#001C3B</color>
+    <color name="md_theme_light_secondary">#4CD787</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_background">#FDFBFF</color>
+    <color name="md_theme_light_onBackground">#1A1B1E</color>
+    <color name="md_theme_light_surface">#FDFBFF</color>
+    <color name="md_theme_light_onSurface">#1A1B1E</color>
+    <color name="md_theme_dark_primary">#A2C9FF</color>
+    <color name="md_theme_dark_onPrimary">#003060</color>
+    <color name="md_theme_dark_primaryContainer">#00468A</color>
+    <color name="md_theme_dark_onPrimaryContainer">#D2E4FF</color>
+    <color name="md_theme_dark_secondary">#4CD787</color>
+    <color name="md_theme_dark_onSecondary">#003822</color>
+    <color name="md_theme_dark_background">#1A1B1E</color>
+    <color name="md_theme_dark_onBackground">#E3E2E6</color>
+    <color name="md_theme_dark_surface">#1A1B1E</color>
+    <color name="md_theme_dark_onSurface">#E3E2E6</color>
+</resources>
