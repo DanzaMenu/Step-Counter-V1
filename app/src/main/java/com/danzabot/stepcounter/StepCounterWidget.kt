@@ -71,9 +71,14 @@ class StepCounterWidget : AppWidgetProvider() {
             // Draw weather background (same system as the main view)
             val uiPrefs = context.getSharedPreferences("step_counter_ui", Context.MODE_PRIVATE)
             val scene = uiPrefs.getString("scene", "sun") ?: "sun"
-            val kind = if (scene == "live") WeatherState.kind else scene
-            WeatherScene.draw(canvas, 0f, 0f, widthPx.toFloat(), h.toFloat(),
-                dm.density, kind, WeatherState.isNight)
+            val kind = if (scene == "live" || scene == "vegas") WeatherState.kind else scene
+            if (scene == "vegas") {
+                VegasScene.draw(canvas, 0f, 0f, widthPx.toFloat(), h.toFloat(),
+                    dm.density, kind, WeatherState.isNight)
+            } else {
+                WeatherScene.draw(canvas, 0f, 0f, widthPx.toFloat(), h.toFloat(),
+                    dm.density, kind, WeatherState.isNight)
+            }
 
             // Draw the exact same StepCounterView on top (it has its own semi-transparent panel)
             view.draw(canvas)

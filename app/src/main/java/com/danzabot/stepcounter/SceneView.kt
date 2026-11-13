@@ -51,6 +51,10 @@ class SceneView(context: Context, attrs: AttributeSet? = null) : View(context, a
             else                -> "sun"
         }
 
-        WeatherScene.draw(canvas, 0f, 0f, w, h, u, kind, WeatherState.isNight)
+        if (scene == "vegas") {
+            VegasScene.draw(canvas, 0f, 0f, w, h, u, kind, WeatherState.isNight)
+        } else {
+            WeatherScene.draw(canvas, 0f, 0f, w, h, u, kind, WeatherState.isNight)
+        }
     }
 }

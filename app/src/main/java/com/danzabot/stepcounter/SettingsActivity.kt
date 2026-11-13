@@ -150,9 +150,8 @@ class SettingsActivity : AppCompatActivity() {
 
     // ── Scene ─────────────────────────────────────────────────────────────────
 
-    private val sceneKeys   = listOf("live", "sun", "partly", "cloud", "fog", "rain", "snow", "storm")
-    private val sceneLabels = listOf("Live Weather", "Sunny", "Partly Cloudy", "Cloudy",
-                                     "Foggy", "Rainy", "Snowy", "Stormy")
+    private val sceneKeys   = listOf("live", "vegas")
+    private val sceneLabels = listOf("Live Weather", "Las Vegas Strip")
 
     private fun setupScene() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, sceneLabels)
